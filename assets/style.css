@@ -203,3 +203,30 @@ span.h {
         box-shadow: none;
     }
 }
+
+.button {
+    all: unset;
+    display: inline-block;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.button.ghost {
+    font-size: 1.5rem;
+    font-weight:600;
+    color: #FFF ;
+    border: 2px solid #FFF;
+    padding: 0.65em 1.7em;
+    border-radius: 2px;
+    transition: all 0.6s ease 0s;
+    cursor: pointer;
+}
+
+.button.ghost:hover{
+    background:#FFF;
+    color: #000;
+}
+
+.chulapa {
+    font-family: Chulapa;
+}
