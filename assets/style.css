@@ -230,3 +230,7 @@ span.h {
 .chulapa {
     font-family: Chulapa;
 }
+
+#feedback {
+    margin-top: 4rem;
+}
