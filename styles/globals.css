@@ -24,3 +24,203 @@ a {
     background: black;
   }
 }
+
+@font-face {
+  font-family: Chulapa;
+  src: url(/fonts/Chulapa-Regular.otf);
+}
+
+@font-face {
+  font-family: Chulapa;
+  src: url(/fonts/Chulapa-Bold.otf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Chulapa;
+  src: url(/fonts/Chulapa-Light.otf);
+  font-weight: lighter;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* background-color: #182a6c; */
+  color: #fff;
+}
+
+body {
+  background: linear-gradient(-78deg, #ee7752, #e73c7e, #182a6c);
+  background-size: 350% 350%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+.heading {
+  font-family: Chulapa;
+  font-variant-ligatures: discretionary-ligatures;
+  font-size: 5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.heading:not(.neon-text) {
+  text-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075)
+}
+
+span.m,
+span.o,
+span.a,
+span.e {
+  font-feature-settings: "ss03";
+}
+
+span.r {
+  font-feature-settings: "aalt" 4;
+}
+
+span.h {
+  font-feature-settings: "aalt";
+}
+
+.heading span.el {
+  font-feature-settings: "dlig";
+}
+
+.sub-heading {
+  font-family: Chulapa;
+  font-variant-ligatures: discretionary-ligatures;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-top: 3rem;
+}
+
+.typewriter {
+  margin: auto;
+  width: fit-content;
+}
+
+
+.typewriter h2 {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .15em solid #fff;
+  padding-right: 0.25em;
+  animation: typing 1s steps(20, end) forwards, blinking .8s infinite;
+  font-size: 1.6rem;
+  width: 0;
+}
+
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+@keyframes blinking {
+  from {
+    border-right-color: transparent
+  }
+
+  to {
+    border-right-color: #fff;
+  }
+}
+
+.button {
+  all: unset;
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.button.ghost {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #FFF;
+  border: 2px solid #FFF;
+  padding: 0.65em 1.7em;
+  border-radius: 2px;
+  transition: all 0.6s ease 0s;
+  cursor: pointer;
+}
+
+.button.ghost:hover {
+  background: #FFF;
+  color: #000;
+}
+
+.chulapa {
+  font-family: Chulapa;
+}
