@@ -1,3 +1,4 @@
+import styles from '../styles/home.module.css'
 import Head from 'next/head'
 
 export default function Home() {
@@ -9,10 +10,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1 className="heading">La <span className="h">h</span><span className="o">o</span><span className="r">r</span><span className="a">a</span><br />d<span className="el">el</span> V<span className="e">e</span><span className="r">r</span><span className="m">m</span>ú</h1>
-        <div className="typewriter">
-            <h2 className="sub-heading">El chispazo de la vida.</h2>
+      <main className={styles.main}>
+        <h1 className={styles.heading}>La <span className={styles.h}>h</span><span className={styles.o}>o</span><span className={styles.r}>r</span><span className={styles.a}>a</span><br />d<span className={styles.el}>el</span> V<span className={styles.e}>e</span><span className={styles.r}>r</span><span className={styles.m}>m</span>ú</h1>
+        <div className={styles.typewriter}>
+            <h2 className={styles.subHeading}>El chispazo de la vida.</h2>
         </div>
       </main>
     </>
