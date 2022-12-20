@@ -1,65 +1,37 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: 16px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@font-face {
-  font-family: Chulapa;
-  src: url(/fonts/Chulapa-Regular.otf);
-}
+@layer base {
+    @font-face {
+        font-family: Chulapa;
+        src: url(/fonts/Chulapa-Regular.otf);
+    }
 
-@font-face {
-  font-family: Chulapa;
-  src: url(/fonts/Chulapa-Bold.otf);
-  font-weight: bold;
-}
+    @font-face {
+        font-family: Chulapa;
+        src: url(/fonts/Chulapa-Bold.otf);
+        font-weight: bold;
+    }
 
-@font-face {
-  font-family: Chulapa;
-  src: url(/fonts/Chulapa-Light.otf);
-  font-weight: lighter;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
+    @font-face {
+        font-family: Chulapa;
+        src: url(/fonts/Chulapa-Light.otf);
+        font-weight: lighter;
+    }
 }
 
 main {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.chulapa {
-  font-family: Chulapa;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
+.font-variant-ligatures-discretionary {
+    font-variant-ligatures: discretionary-ligatures;
 }
