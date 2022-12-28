@@ -35,3 +35,7 @@ main {
 .font-variant-ligatures-discretionary {
     font-variant-ligatures: discretionary-ligatures;
 }
+
+.audio-player-progress::-webkit-slider-thumb {
+    opacity: 0;
+}
