@@ -1,7 +1,16 @@
 import Play from "./Play"
 import Pause from "./Pause"
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, useMemo, CSSProperties } from "react"
+import Image from 'next/image'
 
+const startTimer = (intervalRef : any, audioRef : any, setProgress : any) => {
+    // Clear any timers already running
+    clearInterval(intervalRef.current);
+
+    intervalRef.current = setInterval(() => {
+        setProgress(audioRef.current?.currentTime || 0)
+    }, 1000)
+}
 
 export default function AudioPlayer({
     author='La hora del vermú',
@@ -20,14 +29,6 @@ export default function AudioPlayer({
         setIsPlaying(playing => !playing)
     }
 
-    const startTimer = () => {
-        // Clear any timers already running
-        clearInterval(intervalRef.current);
-    
-        intervalRef.current = setInterval(() => {
-            setProgress(audioRef.current?.currentTime || 0)
-        }, 1000)
-    }
 
     const onScrub = (value : string) => {
         if (!audioRef.current) return
@@ -41,14 +42,14 @@ export default function AudioPlayer({
         if (!isPlaying) {
             setIsPlaying(true)
         }
-        startTimer()
+        startTimer(intervalRef, audioRef, setProgress)
     }
 
     useEffect(() => {
         audioRef.current = new Audio(audioSrc)
         audioRef.current.load()
-        startTimer()
-    }, [])
+        startTimer(intervalRef, audioRef, setProgress)
+    }, [audioSrc])
     
     useEffect(() => {
         if (!audioRef.current) return
@@ -56,7 +57,7 @@ export default function AudioPlayer({
         return (() => {
             audioRef.current?.removeEventListener('ended', () => setIsPlaying(false))
         })
-    }, [audioRef.current])
+    }, [])
 
     useEffect(() => {
         if (!audioRef.current) {
@@ -68,13 +69,13 @@ export default function AudioPlayer({
             audioRef.current.pause()
         }
 
-    }, [isPlaying, audioRef.current])
+    }, [isPlaying])
 
     return (
         <div className={`w-100 backdrop-blur-sm bg-white/30 rounded`}>
             <div className={`w-100 p-3 flex flex-col justify-content-center items-center gap-2`}>
                 <div className={`w-48 h-48 rounded-full overflow-hidden`}>
-                    <img className="w-48 h-48 transition-all duration-500 object-cover grayscale hover:grayscale-0 hover:scale-110" src="/img/AudioCover.jpeg" />
+                    <Image className="w-48 h-48 transition-all duration-500 object-cover grayscale hover:grayscale-0 hover:scale-110" src="/img/AudioCover.jpeg" alt="Audio Cover" width="240" height="240" />
                 </div>
                 <div className={`text-sm`}>{author}</div>
                 <div className={`text-xl font-bold`}>{title}</div>
@@ -97,7 +98,7 @@ export default function AudioPlayer({
                         className="audio-player-progress grow h-2 appearance-none cursor-pointer bg-gradient-to-r from-white to-gray-400"
                         style={{
                             '--tw-gradient-stops': `var(--tw-gradient-from) 0% ${progressPercentage}%, var(--tw-gradient-to) ${progressPercentage}% 100%`
-                        }}
+                        } as CSSProperties}
                     />
                 </div>
             </div>
